@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -260,6 +261,16 @@
     white-space: nowrap;
   }
 
+  .desc {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: .72rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
   .url {
     display: block;
     margin-top: 4px;
@@ -435,6 +446,7 @@ async function loadPages() {
       link.innerHTML = `
         <span>
           <span class="name">${escapeHtml(repo.name)}</span>
+          ${repo.description ? `<span class="desc">${escapeHtml(repo.description)}</span>` : ""}
           <span class="url">${escapeHtml(url.replace("https://", ""))}</span>
         </span>
         <span class="arrow" aria-hidden="true">+</span>
